@@ -1,0 +1,47 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Lavenders | Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <video autoplay loop muted id="background-video">
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+    <div class="login-container">
+        <div class="login-logo">
+            <br><br><b>Welcome To</b></br><b>HOTEL Lavenders</b></span>
+        </div>
+        <form class="login-form">
+            <h2>Login to Your Account</h2>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
+                <input type="checkbox" id="show-password" onclick="showPassword()">
+                <label for="show-password">Show Password</label>
+            </div>
+            <button class="login-btn">Login</button>
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </form>
+    </div>
+
+    <script>
+        function showPassword() {
+            var x = document.getElementById("password");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>
