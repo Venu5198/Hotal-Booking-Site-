@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Availability | Hotel Lavenders</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div class="nav__bar">
+            <div class="nav__header">
+                <div class="logo nav__logo">
+                    <div>
+                        <img src="assets/about-0.jpg" alt="Description of image" width="100" height="100">
+                    </div>
+                    <span><b>HOTEL</b><br /><b>Lavenders</b></span>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="index.html"><b>Home</b></a></li>
+                <li><a href="index.html#about"><b>About</b></a></li>
+                <li><a href="index.html#room"><b>Room</b></a></li>
+                <li><a href="index.html#feature"><b>Feature</b></a></li>
+                <li><a a href="index.html#menu"><b>Menu</b></a></li>
+                <li><a href="index.html#news"><b>News</b></a></li>
+                <button class="btn" onclick="log()">Login</button>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="availability-results">
+        <div class="section__container">
+            <h2 class="section__header">Availability Results</h2>
+            <p id="availability-message"></p>
+            <div id="availability-list"></div>
+        </div>
+    </section>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const arrivalDate = urlParams.get('arrival-date');
+        const departureDate = urlParams.get('departure-date');
+        const guests = urlParams.get('guests');
+
+        document.getElementById('availability-message').innerHTML = `You have searched for availability from ${arrivalDate} to ${departureDate} for ${guests} guests.`;
+
+        // You can add your logic here to display the availability results
+        // For now, I'm just displaying a dummy list
+        const availabilityList = document.getElementById('availability-list');
+        availabilityList.innerHTML = `
+            <ul>
+                <li>Room 1: Available</li>
+                <li>Room 2: Not Available</li>
+                <li>Room 3: Available</li>
+            </ul>
+        `;
+    </script>
+</body>
+</html>
