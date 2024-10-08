@@ -29,7 +29,13 @@
                 <label for="show-password">Show Password</label>
             </div>
             <button class="login-btn">Login</button>
-            <p>Don't have an account? <a href="#">Sign up</a></p>
+            <p>Don't have an account? <a href="#" id="signup-link">Sign up</a></p>
+            <div class="google-signin">
+                <button class="google-btn" onclick="googleSignIn()">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google Logo">
+                    Sign in with Google
+                </button>
+            </div>
         </form>
     </div>
 
@@ -42,6 +48,32 @@
                 x.type = "password";
             }
         }
+
+        // Handle Google Sign-in button click
+        function googleSignIn() {
+            // Create a new instance of the Google Auth API
+            var auth2 = gapi.auth2.init({
+                client_id: '539855288181-6kfp0rv1pm9ehrkvei6j9a2gjiitnosl.apps.googleusercontent.com',
+                scope: 'profile email'
+            });
+
+            // Handle the sign-in button click
+            auth2.signIn().then(function(googleUser  ) {
+                // Get the user's profile information
+                var profile = googleUser  .getBasicProfile();
+                console.log('Full Name: ' + profile.getName());
+                console.log('Email: ' + profile.getEmail());
+
+                // You can now use the user's email to authenticate them
+                // For example, you can make an AJAX request to your server to authenticate the user
+                // using their email address
+            }, function(error) {
+                console.log('Error: ' + error);
+            });
+        }
     </script>
+
+    <!-- Load the Google Auth API script -->
+    <script src="https://apis.google.com/js/api:client.js"></script>
 </body>
 </html>
