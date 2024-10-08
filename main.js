@@ -52,3 +52,37 @@ ScrollReveal().reveal(".news__card", {
   ...scrollRevealOption,
   interval: 500,
 });
+function openTour() {
+  // Open a local file
+  var url = "Take A Tour.html"; // Replace with your file name
+  var win = window.open(url, '_blank');
+  win.focus();
+}
+function log(){
+  var url = "Login.html";
+  var win = window.open(url,  '_blank');
+  win.focus();
+}
+const tabs = document.querySelectorAll('.tab');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+        const tabId = tab.getAttribute('data-tab');
+        const tabContent = document.querySelector(`#${tabId}`);
+
+        tabs.forEach((tab) => tab.classList.remove('active'));
+        tab.classList.add('active');
+
+        tabContents.forEach((tabContent) => tabContent.classList.remove('active'));
+        tabContent.classList.add('active');
+    });
+});
+// Get the deluxe suite link element
+const deluxeSuiteLink = document.querySelector('.room__card h4:contains("Deluxe Suite")').closest('.room__card');
+
+// Add an event listener to the deluxe suite link
+deluxeSuiteLink.addEventListener('click', () => {
+  // Open the availability webpage
+  window.open('availability.html', '_self');
+});
